@@ -20,36 +20,35 @@ namespace Carrito
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
             listaArticulos = negocio.listar();
-            dgvArticulos.DataSource = listaArticulos;
-            dgvArticulos.DataBind();
-            
+            //dgvArticulos.DataSource = listaArticulos;
+            //dgvArticulos.DataBind();
 
         }
 
         protected void dgvArticulos_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-            if (e.Row.RowType == DataControlRowType.DataRow)
-            {
-                e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink(dgvArticulos, "Select$" + e.Row.RowIndex);
-                e.Row.ToolTip = "Click to select this row.";
-            }
+            //if (e.Row.RowType == DataControlRowType.DataRow)
+            //{
+            //    e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink(dgvArticulos, "Select$" + e.Row.RowIndex);
+            //    e.Row.ToolTip = "Click to select this row.";
+            //}
         }
 
         protected void dgvArticulos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            foreach (GridViewRow row in dgvArticulos.Rows)
-            {
-                if (row.RowIndex == dgvArticulos.SelectedIndex)
-                {
-                    row.BackColor = ColorTranslator.FromHtml(" #cce7ff");
-                    row.ToolTip = string.Empty;
-                }
-                else
-                {
-                    row.BackColor = ColorTranslator.FromHtml("#FFFFFF");
-                    row.ToolTip = "Click to select this row.";
-                }
-            }
+            //foreach (GridViewRow row in dgvArticulos.Rows)
+            //{
+            //    if (row.RowIndex == dgvArticulos.SelectedIndex)
+            //    {
+            //        row.BackColor = ColorTranslator.FromHtml(" #cce7ff");
+            //        row.ToolTip = string.Empty;
+            //    }
+            //    else
+            //    {
+            //        row.BackColor = ColorTranslator.FromHtml("#FFFFFF");
+            //        row.ToolTip = "Click to select this row.";
+            //    }
+            //}
         }
 
         protected void btnAgregar_Click(object sender, EventArgs e)
