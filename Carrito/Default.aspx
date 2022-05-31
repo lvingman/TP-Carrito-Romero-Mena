@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="default.aspx.cs" Inherits="Carrito._Default" %>
+﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Carrito._Default" EnableEventValidation = "false" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -40,8 +40,10 @@
     </div>--%>
 
     <div>
-
-        <asp:GridView ID="dgvArticulos" runat="server"></asp:GridView>
+        <h1> Catalogo de Articulos</h1>
+        <asp:GridView ID="dgvArticulos" runat="server" OnRowDataBound="dgvArticulos_RowDataBound" OnSelectedIndexChanged="dgvArticulos_SelectedIndexChanged" ></asp:GridView>
+        <br>
+        <asp:Button ID="btnAgregar" runat="server" Text="Agregar articulo seleccionado al carrito" OnClick="btnAgregar_Click" />
 
     </div>
 
