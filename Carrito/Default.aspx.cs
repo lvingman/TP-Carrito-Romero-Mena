@@ -53,7 +53,7 @@ namespace Carrito
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
-            ///A Completar
+            ///TBD
         }
     }
 }

@@ -28,5 +28,7 @@ namespace negocio
 
         public static string ALTA_ARTICULO = "update articulos set Estado = 1 where ID = @ID";
 
+        public static string BUSCAR_POR_ID = "select A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, M.Id as IdMarca, C.Descripcion as Categoria, C.Id as IdCategoria, A.ImagenUrl, A.Precio, A.Estado from ARTICULOS A inner join MARCAS M on M.Id = A.IdMarca inner join CATEGORIAS C on C.Id = A.IdCategoria where A.Id = @ID";
+
     }
 }

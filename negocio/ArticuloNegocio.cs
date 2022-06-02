@@ -266,7 +266,9 @@ namespace negocio
 
                     if (estado == false && aux.Estado == false) lista.Add(aux);
                     if (estado == true && aux.Estado == true) lista.Add(aux);
-                   
+
+                    datos.ejecutarAccion();
+
                 }
 
 
@@ -277,5 +279,59 @@ namespace negocio
                 throw ex;
             }
         }
+
+        public List<Articulo> buscarPorID(int IDbuscar, bool estado = true)
+        {
+
+            List<Articulo> lista = new List<Articulo>();
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+
+                datos.setearConsulta(Diccionario.BUSCAR_POR_ID);
+                datos.setearParametro("@ID", IDbuscar);
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    Articulo aux = new Articulo();
+
+                    aux.ID = (int)datos.Lector["Id"];
+                    aux.Codigo = (string)datos.Lector["Codigo"];
+                    aux.Nombre = (string)datos.Lector["Nombre"];
+                    aux.Descripcion = (string)datos.Lector["Descripcion"];
+                    aux.Marca = new Marca();
+                    aux.Marca.ID = (int)datos.Lector["IdMarca"];
+                    aux.Marca.Descripcion = (string)datos.Lector["Marca"];
+                    aux.Categoria = new Categoria();
+                    aux.Categoria.ID = (int)datos.Lector["IdCategoria"];
+                    aux.Categoria.Descripcion = (string)datos.Lector["Categoria"];
+                    aux.Imagen = (string)datos.Lector["ImagenURL"];
+                    aux.Precio = (decimal)datos.Lector["Precio"];
+                    aux.Estado = (bool)datos.Lector["Estado"];
+
+                    if (estado == false && aux.Estado == false) lista.Add(aux);
+                    if (estado == true && aux.Estado == true) lista.Add(aux);
+
+                }
+
+                
+
+            }
+            catch (Exception ex)
+            {
+                return lista;
+                throw ex;
+
+            }
+            finally
+            {
+                datos.cerrarConexion();
+              
+            }
+            return lista;
+        }
+
     }
 }

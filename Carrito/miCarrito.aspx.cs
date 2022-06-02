@@ -11,14 +11,18 @@ namespace Carrito
 {
     public partial class About : Page
     {
-        public List<dominio.Articulo> listaArticulos { get; set; }
+        public List<dominio.Articulo> listaArticulosCarro { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         
         {
+            int id;
+            int.TryParse(Request.QueryString["id"], out id);
+
             ArticuloNegocio negocio = new ArticuloNegocio();
-            listaArticulos = negocio.listar();
-            dgvCarro.DataSource = listaArticulos;
+            listaArticulosCarro = negocio.buscarPorID(id);
+            dgvCarro.DataSource = listaArticulosCarro;
             dgvCarro.DataBind();
+
 
 
         }
