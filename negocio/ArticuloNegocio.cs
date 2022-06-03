@@ -280,10 +280,10 @@ namespace negocio
             }
         }
 
-        public List<Articulo> buscarPorID(int IDbuscar, bool estado = true)
+        public Articulo buscarPorID(int IDbuscar, bool estado = true)
         {
 
-            List<Articulo> lista = new List<Articulo>();
+            Articulo aux = new Articulo();
             AccesoDatos datos = new AccesoDatos();
 
             try
@@ -295,7 +295,7 @@ namespace negocio
 
                 while (datos.Lector.Read())
                 {
-                    Articulo aux = new Articulo();
+
 
                     aux.ID = (int)datos.Lector["Id"];
                     aux.Codigo = (string)datos.Lector["Codigo"];
@@ -311,8 +311,8 @@ namespace negocio
                     aux.Precio = (decimal)datos.Lector["Precio"];
                     aux.Estado = (bool)datos.Lector["Estado"];
 
-                    if (estado == false && aux.Estado == false) lista.Add(aux);
-                    if (estado == true && aux.Estado == true) lista.Add(aux);
+                    if (estado == false && aux.Estado == false) return aux;
+                    if (estado == true && aux.Estado == true) return aux;
 
                 }
 
@@ -321,7 +321,6 @@ namespace negocio
             }
             catch (Exception ex)
             {
-                return lista;
                 throw ex;
 
             }
@@ -330,7 +329,7 @@ namespace negocio
                 datos.cerrarConexion();
               
             }
-            return lista;
+            return aux;
         }
 
     }

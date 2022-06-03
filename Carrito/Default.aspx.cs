@@ -23,6 +23,9 @@ namespace Carrito
             //dgvArticulos.DataSource = listaArticulos;
             //dgvArticulos.DataBind();
 
+            Session.Add("catalogo", listaArticulos);
+            
+
         }
 
         protected void dgvArticulos_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -51,9 +54,6 @@ namespace Carrito
             //}
         }
 
-        protected void btnAgregar_Click(object sender, EventArgs e)
-        {
-            ///TBD
-        }
+
     }
 }

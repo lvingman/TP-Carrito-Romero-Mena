@@ -14,7 +14,7 @@
                             <img src="<%= item.Imagen %>" alt="Articulo" />
                             <h4><%= item.Nombre %></h4>
                             <p><%= item.Descripcion %></p>
-                            <a href="miCarrito?id=<%= item.ID %>">Agregar</a>
+                            <a href="miCarrito?id=<%= item.ID %>">Agregar</a> 
                             <%--<asp:Button ID="btnAgregar" runat="server" Text="Agregar" OnClick="btnAgregar_Click" />--%>
                         </div>
                 <% } %>
