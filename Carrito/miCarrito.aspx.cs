@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Data;
+using System.Data.SqlClient;
 using System.Collections.Generic;
 using System.Linq;
+using System.Configuration;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -34,18 +37,26 @@ namespace Carrito
                     listaCatalogo = (List<Articulo>)Session["catalogo"];
                     listaArticulosCarro.Add(listaCatalogo.Find(x => x.ID == id));
                     Session.Add("carrito", listaArticulosCarro);
-                    dgvCarro.DataSource = listaArticulosCarro;
-                    dgvCarro.DataBind();
+
                     ///Falta corregir que el sitio web no se crashee al cargar la pagina sin mandar ningun ID
                     ///Profesores recomendaron verificar que no se genere un nuevo listaArticulos chequeando que ya hay una lista existente
                     ///Se podria usar bandera para corregir esto
                 }
-            } 
+
+            }
+            listaArticulosCarro = (List<Articulo>)Session["carrito"];
+            dgvCarro.DataSource = listaArticulosCarro;
+            dgvCarro.DataBind();
+        
+        }
+        protected void dgvCarro_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+
         }
 
-        protected void btnCounter_Click(object sender, EventArgs e)
+        protected void dgvCarro_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-            test++;
+
         }
     }
 }
