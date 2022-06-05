@@ -33,8 +33,12 @@ namespace Carrito
                 {
                     aContar += cantArticulo.cant;
                 }
-                carro = String.Format("Mi Carrito ({0})", aContar);
-                return carro;
+                if (aContar > 0)
+                {
+                    carro = String.Format("Mi Carrito ({0})", aContar);
+                    return carro;
+                }
+                else return carro;
             }
         }
 
