@@ -11,10 +11,12 @@
                 <% foreach (dominio.Articulo item in listaArticulos)
                     { %>
                         <div class="card">
-                            <img src="<%= item.Imagen %>" alt="Articulo" />
+                            <img src="<%= item.Imagen %>" alt="Articulo" onerror="this.src='<%=negocio.Diccionario.IMAGE_NOTFOUND%>'" />
                             <h4><%= item.Nombre %></h4>
                             <p><%= item.Descripcion %></p>
                             <a href="miCarrito?id=<%= item.ID %>">Agregar</a> 
+                            <%-- <asp:Button ID="btnAgregar" runat="server" Text="Agregar" />
+                        --%>
                         </div>
                 <% } %>
 
