@@ -21,4 +21,15 @@ namespace dominio
         public decimal Precio { get; set; }
         public bool Estado { get; set; }
     }
+    public class cantArticulo
+    {
+        public int id { get; set; }
+        public int cant { get; set; }
+
+        public cantArticulo(int a, int b)
+        {
+            id = a;
+            cant = b;
+        }
+    }
 }

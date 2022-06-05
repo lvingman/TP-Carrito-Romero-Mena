@@ -48,7 +48,7 @@
                             <p><%= item.Descripcion %></p>
                         </div>
                         <div class="col border">
-                            <img class="img-thumbnail" src="<%= item.Imagen %>" onerror="this.src='<%=negocio.Diccionario.IMAGE_NOTFOUND%>'"  style="width:40%" />
+                            <img class="img-thumbnail" src="<%= item.Imagen %>" onerror="this.src='<%=negocio.Diccionario.IMAGE_NOTFOUND%>'"  style="width:70%" />
                         </div>
                         <div class="col border">
                             <a href="miCarrito?idmas=<%= item.ID %>">+</a>

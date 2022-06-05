@@ -20,17 +20,7 @@ namespace Carrito
         public List<int> cantidadArticulos { get; set; }
 
         public List<dominio.Articulo> listaCatalogo { get; set; }
-        public class cantArticulo
-        {
-            public int id { get; set; }
-            public int cant { get; set; }
 
-            public cantArticulo(int a, int b)
-            {
-                id = a;
-                cant = b;
-            }
-        }
 
         public List<cantArticulo> cantArticulos { get; set; }
 
